@@ -28,3 +28,22 @@ A variable in C must be a specified data type, and you must use a format specifi
 | %lf              | double    |
 | %c               | char      |
 | %s               | strings   |
+| %lu              | sizeOf    |
+
+We use the %lu format specifer to print the result, instead of %d. It is because the compiler expects the sizeof operator to return a long unsigned int (%lu), instead of int (%d). On some computers it might work with %d, but it is safer to use %lu.
+
+### float vs. double
+
+The precision of a floating point value indicates how many digits the value can have after the decimal point. The precision of float is six or seven decimal digits, while double variables have a precision of about 15 digits. Therefore, it is often safer to use double for most calculations - but note that it takes up twice as much memory as float (8 bytes vs. 4 bytes).
+
+A floating point number can also be a scientific number with an "e" to indicate the power of 10.
+
+### Why Should I Know the Size of Data Types?
+
+Knowing the size of different data types is important because it says something about memory usage and performance.
+
+For example, the size of a char type is 1 byte. Which means if you have an array of 1000 char values, it will occupy 1000 bytes (1 KB) of memory.
+
+Using the right data type for the right purpose will save memory and improve the performance of your program.
+
+You will learn more about the sizeof operator later in this tutorial, and how to use it in different scenarios.
