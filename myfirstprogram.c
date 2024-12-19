@@ -63,10 +63,22 @@ int main() {
    */
   float myFloatNum1 = 3.5;
 
-  printf("%f\n",
+  printf("Imprime default: %f\n",
          myFloatNum1); // Default will show 6 digits after the decimal point
-  printf("%.1f\n", myFloatNum1); // Only show 1 digit
-  printf("%.2f\n", myFloatNum1); // Only show 2 digits
-  printf("%.4f", myFloatNum1);   // Only show 4 digits
+  printf("Imprime sólo 1 decimal: %.1f\n", myFloatNum1); // Only show 1 digit
+  printf("Imprime 2 decimales: %.2f\n", myFloatNum1);    // Only show 2 digits
+  printf("Imprime 4 decimales: %.4f\n", myFloatNum1);    // Only show 4 digits
+  //
+  //
+  // Implicit Conversion
+  double X = 5;
+  int Y = 8.98;
+  printf("Los valores deberían ser 5 y 8.98, no %lf y %d\n", X, Y);
+
+  // Manual Conversion
+  float cociente = 5 / 2;
+  float cociente1 = (float)5 / 2;
+  printf("The division between 5 and 2 without conversion: %.1f\n", cociente);
+  printf("The division between 5 and 2 with conversion: %.1f\n", cociente1);
   return 0;
 }
