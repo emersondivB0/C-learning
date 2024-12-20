@@ -80,5 +80,22 @@ int main() {
   float cociente1 = (float)5 / 2;
   printf("The division between 5 and 2 without conversion: %.1f\n", cociente);
   printf("The division between 5 and 2 with conversion: %.1f\n", cociente1);
+
+  // Operators
+  //
+  // Arithmetic Operators
+  //
+  int A = 3, B = 7, C = 12;
+  double D = 3.8, E = .12, F = 2.5;
+  char sep[] = " --------------------------------------------- ";
+  printf("%s\n", sep);
+  printf("Let's work on Operators, Arithmetic, Assignment, Comparison and "
+         "Logical\n");
+  printf("Modulus: 5 %c 3 = %d\n", '%', 5 % 3);
+  printf("Increment a Decrement, be A = 3 and B = 7, ++A and --B would be: %d "
+         "and %d\n",
+         ++A, --B);
+
+  printf("If C=12, C %c= 3 => %d\n", '|', C | 3);
   return 0;
 }
