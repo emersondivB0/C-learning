@@ -1,14 +1,17 @@
+![alt text](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fstatic.skillshare.com%2Fuploads%2Fvideo%2Fthumbnails%2Fb9455fc40a4053509ef0a77b8ddb6a51%2Foriginal&sp=1734785419T5638b9cd2430be70bfdad72d9b5e4502affd2191ddee71ac51fbe782aa2094b8)
+
 # Learning C
 
 ## Variables
 
-A variable in C must be a specified data type, and you must use a format specifier inside the `printf()` function to display it.
+A variable in C must be a specified data type, and you must use a format specifier
+inside the `printf()` function to display it.
 
 - Names can contain letters, digits and underscores
 - Names must begin with a letter or an underscore (\_)
-- Names are case-sensitive (myVar and myvar are different variables)
+- Names are case-sensitive (`myVar` and `myvar` are different variables)
 - Names cannot contain whitespaces or special characters like !, #, %, etc.
-- Reserved words (such as int) cannot be used as names
+- Reserved words (such as `int`) cannot be used as names
 
 ## Data Types
 
@@ -30,11 +33,15 @@ A variable in C must be a specified data type, and you must use a format specifi
 | %s               | strings   |
 | %lu              | sizeOf    |
 
-We use the %lu format specifer to print the result, instead of %d. It is because the compiler expects the sizeof operator to return a long unsigned int (%lu), instead of int (%d). On some computers it might work with %d, but it is safer to use %lu.
+We use the `%lu` format specifer to print the result, instead of `%d`. It is because the compiler expects the sizeof operator to return a long unsigned int (`%lu`), instead of int (`%d`). On some computers it might work with `%d`, but it is safer to use `%lu`.
 
 ### float vs double
 
-The precision of a floating point value indicates how many digits the value can have after the decimal point. The precision of float is six or seven decimal digits, while double variables have a precision of about 15 digits. Therefore, it is often safer to use double for most calculations - but note that it takes up twice as much memory as float (8 bytes vs. 4 bytes).
+The precision of a floating point value indicates how many digits the value
+can have after the decimal point. The precision of float is six or seven decimal
+digits, while double variables have a precision of about 15 digits. Therefore,
+it is often safer to use double for most calculations - but note that it takes
+up twice as much memory as float (8 bytes vs. 4 bytes).
 
 A floating point number can also be a scientific number with an "e" to indicate the power of 10.
 
@@ -152,3 +159,98 @@ Logical operators are used to determine the logic between variables or values, b
 | &&       | AND  | x < 5 && x < 10    | Returns 1 if both statements are true            |
 | \|\|     | OR   | x < 5 \|\| x < 4   | Returns 1 if one of the statements is true       |
 | !        | NOT  | !(x < 5 && x < 10) | Reverse the result, returns 0 if the result is 1 |
+
+## Booleans
+
+Booleans represent values that are either **true** or **false**.
+
+### Boolean Variables
+
+In C, the `bool` type is not a built-in data type, like `int` or `char`.
+
+It was introduced in C99, and you must import the following header file to use it:
+
+```c
+#include <stdbool.h>
+```
+
+A boolean variable is declared with the `bool` keyword and can take the values `true` or `false`:
+
+```c
+bool isProgrammingFun = true;
+bool isDirtTasty = false;
+```
+
+Boolean values are returned as integers:
+
+- 1 (or any other number that is not 0) represents true
+- 0 represents false
+
+Therefore, you must use the `%d` format specifier to print a boolean value.
+
+## If ... Else
+
+C supports the usual logical conditions from mathematics:
+
+- Less than: a < b
+- Less than or equal to: a <= b
+- Greater than: a > b
+- Greater than or equal to: a >= b
+- Equal to a == b
+- Not Equal to: a != b
+
+C has the following conditional statements:
+
+- Use `if` to specify a block of code to be executed, if a specified condition is `true`
+- Use `else` to specify a block of code to be executed, if the same condition is `false`
+- Use `else if` to specify a new condition to test, if the first condition is `false`
+- Use `switch` to specify many alternative blocks of code to be executed
+
+### The `if-else` Statement
+
+Syntax:
+
+```c
+if (condition) {
+  // Code
+} else if (condition 2 {
+  // Code
+} else {
+  // Code
+}
+```
+
+### The short hand `if-else` (Ternary Operator)
+
+There is also a short-hand if else, which is known as the ternary operator because it consists of three operands. It can be used to replace multiple lines of code with a single line. It is often used to replace simple if else statements:
+
+```c
+variable = (condition) ? expressionTrue : expressionFalse;
+```
+
+### Switch
+
+Instead of writing many `if..else` statements, you can use the `switch` statement.
+
+The `switch` statement selects one of many code blocks to be executed:
+
+```c
+switch (expression) {
+  case x:
+    // Code
+    break;
+  case y:
+    // Code
+    break;
+  default:
+    // Code
+}
+```
+
+This is how it works:
+
+- The `switch` expression is evaluated once
+- The value of the expression is compared with the values of each `case`
+- If there is a match, the associated block of code is executed
+- The `break` statement breaks out of the switch block and stops the execution
+- The `default` statement is optional, and specifies some code to run if there is no case match
