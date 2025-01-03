@@ -254,3 +254,88 @@ This is how it works:
 - If there is a match, the associated block of code is executed
 - The `break` statement breaks out of the switch block and stops the execution
 - The `default` statement is optional, and specifies some code to run if there is no case match
+
+## While Loop
+
+The while loop loops through a block of code as long as a specified condition is true:
+
+```c
+while (condition) {
+  // code block to be executed
+}
+```
+
+### Do/While Loop
+
+The `do/while` loop is a variant of the `while` loop. This loop will execute the code block once, before checking if the condition is true, the it will repeat the loop as long as the condition is true.
+
+```c
+do {
+  // Code
+}
+while (condition);
+```
+
+## For Loop
+
+When you know exactly how many times you want to loop through a block of code, use the `for` loop instead of a `while` loop:
+
+```c
+for (expression 1; expression 2; expression 3) {
+  // Code
+}
+```
+
+Expression 1 is executed (one time) before the execution of the code block.
+
+Expression 2 defines the condition for executing the code block.
+
+Expression 3 is executed (every time) after the code block has been executed.
+
+### Break and Continue
+
+The `break` statement can be used to jump out of a loop.
+
+The `continue` statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+## Arrays
+
+Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+
+To create an array, define the data type (like `int`) and specify the name of the array followed by square brackets [].
+
+To insert values to it, use a comma-separated list inside curly braces, and make sure all values are of the same data type:
+
+```c
+int myNumbers[] = {25, 50, 75, 100};
+```
+
+### Set Array Size
+
+```c
+// Declare an array of four integers:
+int myNumbers[4];
+
+// Add elements
+myNumbers[0] = 25;
+myNumbers[1] = 50;
+myNumbers[2] = 75;
+myNumbers[3] = 100;
+```
+
+Using this method, you should know the number of array elements in advance, in order for the program to store enough memory.
+
+You are not able to change the size of the array after creation.
+
+It is important to note that all elements in an array **must be of the same data type**.
+
+### Get Array Size or Length
+
+To get the size of an array, you can use the `sizeof` operator:
+
+```c
+int myNumbers[] = {10, 25, 50, 75, 100};
+printf("%lu", sizeof(myNumbers)); // Prints 20
+```
+
+The `sizeof` operator returns the size of a type in **bytes**.
