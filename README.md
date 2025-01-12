@@ -339,3 +339,80 @@ printf("%lu", sizeof(myNumbers)); // Prints 20
 ```
 
 The `sizeof` operator returns the size of a type in **bytes**.
+
+An `int` type is usually 4 bytes, so from the example above, 4 x 5 (4 bytes x 5 elements) = 20 bytes.
+
+Knowing the memory size of an array is great when you are working with larger programs that require good memory management.
+
+But when you just want to find out how many elements an array has, you can use the following formula (which divides the size of the array by the size of the first element in the array):
+
+```c
+int myNumbers[] = {10, 25, 50, 75, 100};
+int length = sizeof(myNumbers) / sizeof(myNumbers[0]);
+
+printf("%d", length);  // Prints 5
+```
+
+### Strings
+
+The strings are an array of `char` elements, that means that have all the properties of de arrays.
+
+```c
+char greetings[] = "Hello World!";
+printf("%s", greetings);
+printf("%c", greetings[0]); --> H
+```
+
+#### Another way to create Strings
+
+You can create a string with a set of characters. This example will produce the same result as the example in the beginning of this page:
+
+```c
+char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
+printf("%s", greetings);
+```
+
+> [!NOTE]
+> Why do we include the `\0` character at the end? This is known as the "null terminating character",
+> and must be included when creating strings using this method. It tells C that this is the end of the string.
+
+The difference between the two ways of creating strings, is that the first method is easier to write, and you do not have to include the `\0` character, as C will do it for you.
+
+You should note that the size of both arrays is the same: They both have 13 characters (space also counts as a character by the way), including the `\0` character.
+
+### Special Characters
+
+The backslash (\) escape character turns special characters into string characters or actions:
+
+| Escape Character | Result   | Description  |
+| ---------------- | -------- | ------------ |
+| \'               | '        | Single quote |
+| \"               | "        | Double quote |
+| \\               | \        | Backslash    |
+| \n               | New Line | New Line     |
+| \t               | Tab      | Tab          |
+| \0               | Null     | Null         |
+
+### String Functions
+
+To use them, you must include the `<string.h>` header file in your program.
+
+To get the length of a string, you can use the `strlen()` function.
+
+Note that `sizeof` and `strlen` behaves differently, as `sizeof` also includes the `\0` character when counting
+
+It is also important that you know that `sizeof` will always return the memory size (in bytes), and not the actual string length:
+
+```c
+char alphabet[50] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+printf("%d", strlen(alphabet));   // 26
+printf("%d", sizeof(alphabet));   // 50
+```
+
+#### Concatenate Strings
+
+To concatenate (combine) two strings, you can use the `strcat()` function. The size of the first string (the base) should be enough to contain the second string.
+
+#### Copy Strings
+
+To copy the value of one string to another, you can use the `strcpy()` function. The size of the first string should be large enough to store the copied string.
